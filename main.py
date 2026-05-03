@@ -22,13 +22,13 @@ def scrape_wikipedia_ngos():
         for row in rows[1:]:
             cols = row.find_all(["td", "th"])
             if len(cols) >= 4:
-                # Extract text and clean up references (like [1])
+                
                 name = cols[0].text.strip()
                 category = cols[1].text.strip()
                 location = cols[3].text.strip()
                 founder = cols[4].text.strip() if len(cols) > 4 else "N/A"
                 
-                # Generate a placeholder email since Wikipedia doesn't list them
+                
                 email_guess = f"contact@{name.lower().split()[0].replace('.', '')}.org"
 
                 data.append({
