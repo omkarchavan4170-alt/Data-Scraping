@@ -14,11 +14,11 @@ def scrape_wikipedia_ngos():
         
         soup = BeautifulSoup(response.text, "html.parser")
         
-        # Find the main data table (wikitable)
+        
         table = soup.find("table", class_="wikitable")
         rows = table.find_all("tr")
         
-        # Skip the header row [0]
+       
         for row in rows[1:]:
             cols = row.find_all(["td", "th"])
             if len(cols) >= 4:
